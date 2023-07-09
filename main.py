@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+form fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from functions.facebook_posts import facebook_posts
@@ -10,6 +11,18 @@ from functions.facebook_messages import facebook_messages
 from functions.trends import trends
 
 app = FastAPI()
+
+origins = [
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 
 class Msg(BaseModel):
     msg: str
