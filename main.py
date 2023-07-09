@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-form fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from functions.facebook_posts import facebook_posts
