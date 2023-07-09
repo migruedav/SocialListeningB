@@ -65,7 +65,7 @@ python-dateutil==2.8.2
 python-dotenv==0.21.1
 python-gitlab==3.14.0
 python-semantic-release==7.32.1
-pytrends @ git+https://github.com/GeneralMills/pytrends@eb84a3b745359029d784334e735bc1a0e7a77e83
+pytrends 
 pytz==2023.3
 pyzmq==25.0.2
 readme-renderer==37.3
