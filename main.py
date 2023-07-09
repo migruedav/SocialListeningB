@@ -63,6 +63,6 @@ async def get_youtube_posts():
     return data
 
 @app.get("/trends")
-async def get_trends(keywords: str="Formica", timeframe: str="2023-01-01 2023-07-09"):
+async def get_trends(keywords: str, timeframe: str):
     data = trends(keywords,timeframe)
     return data
