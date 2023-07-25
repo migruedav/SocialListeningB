@@ -11,6 +11,7 @@ supabase_key = os.environ.get("SUPABASE_KEY")
 supabase = supabase.create_client(supabase_url, supabase_key)
 
 def instagram_posts():
+    #last_date = 1626307200
     last_date = supabase.table('posts').select('*').eq(column="red",value="instagram").order(column="fecha", desc=True).limit(1).execute()
     last_date = last_date.data[0]['fecha']
 

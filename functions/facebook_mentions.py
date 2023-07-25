@@ -17,6 +17,7 @@ def facebook_mentions():
 
     last_date = supabase.table('mentions').select('*').eq(column="red",value="facebook").order(column="fecha", desc=True).limit(1).execute()
     last_date = last_date.data[0]['fecha']
+    #last_date = 1626307200
 
     url =  f"https://graph.facebook.com/v16.0/{page_id}/tagged"
     params = {
