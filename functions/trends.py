@@ -31,6 +31,11 @@ def trends(keywords, timeframe):
     ibr = json.loads(ibr)
     ibr = ibr['data']
 
+    for item in ibr:
+        if item['geoName'] == 'Ciudad de México':
+            item['geoName'] = 'Distrito Federal'
+
+
     return {'iot': iot, 'ibr': ibr}
 
 
