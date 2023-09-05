@@ -5,6 +5,5 @@
   },
   "deploy": {
     "startCommand": "hypercorn main:app --bind \"[::]:$PORT\""
-  },
-  "pipVersion": "23.2.1"
+  }
 }
