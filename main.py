@@ -9,6 +9,7 @@ from functions.facebook_mentions import facebook_mentions
 from functions.instagram_mentions import instagram_mentions
 from functions.facebook_messages import facebook_messages
 from functions.trends import trends
+from functions.keywords import keywords
 
 app = FastAPI()
 
