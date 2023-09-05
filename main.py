@@ -66,3 +66,8 @@ async def get_youtube_posts():
 async def get_trends(keywords: str, timeframe: str):
     data = trends(keywords,timeframe)
     return data
+
+@app.get("/keywords")
+async def get_keywords(keywords: str):
+    data = trends(keywords)
+    return data

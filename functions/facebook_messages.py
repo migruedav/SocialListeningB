@@ -3,6 +3,7 @@ from supabase import create_client, Client
 from datetime import datetime, timedelta
 import requests
 from dotenv import load_dotenv
+from textblob import TextBlob
 
 load_dotenv()
 token = os.environ.get('token')
@@ -31,7 +32,6 @@ def facebook_messages():
         response = response.json()
         data = response['data']
         for i in data:
-            print(i)
             if 'from' in i and  i['from'] != 'Formica de México':
                 pass
             else:
@@ -45,7 +45,10 @@ def facebook_messages():
                     response = requests.get(url, params=params)
                     response = response.json()
                     message_en = response['responseData']['translatedText']
-                    doc = {"fecha": i['created_time'], 'post_id': post_id, 'message': i['message'],'red': 'facebook', 'message_en': message_en}
+                    blob = TextBlob(message_en)
+                    polarity = blob.sentiment.polarity
+                    subjectivity = blob.sentiment.subjectivity
+                    doc = {"fecha": i['created_time'], 'post_id': post_id, 'message': i['message'],'red': 'facebook', 'message_en': message_en, 'sentiment_polarity': polarity, 'sentiment_subjectivity': subjectivity}
                     supabase.table('messages').insert(doc).execute()
     else:
         pass
